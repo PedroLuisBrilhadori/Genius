@@ -15,32 +15,33 @@ desenha(1);
 
 function desenha(caso){
     if(caso == 1){
-        
-        jogo.valores[valores] = id;
-        valores++
+        for(let i = 0; i <= jogo.valores; i++){    
+            jogo.valores[valores] = id;
+            valores++
 
-        acende()
+            acende()
 
-        function acende(){
-            cell.classList.add('v');
-            inicio()
-        }
+            function acende(){
+                cell.classList.add('v');
+                inicio()
+            }
 
-        function inicio(){
-            return new Promise( remove => {
-                    setTimeout(() => {
-                        remove()
-                }, 2000)
+            function inicio(){
+                return new Promise( remove => {
+                        setTimeout(() => {
+                            remove()
+                    }, 2000)
+                })
+            }
+
+            async function remove(){
+                await inicio(); 
+            }   
+
+            remove().then(v => {
+                cell.classList.remove('v');
             })
         }
-
-        async function remove(){
-            await inicio(); 
-        }   
-
-        remove().then(v => {
-            cell.classList.remove('v');
-        })
     } else
         if(caso == 2){
             for(let i = 0; i < jogo.valores.length; i++){
