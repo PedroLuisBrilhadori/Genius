@@ -4,56 +4,44 @@ var jogo = {
 }
 let jogadas = 0
 let qntValores = 0
+let cell = 0
+let turno = 0
 
 const tabuleiro = document.getElementById('tabuleiro');
 const Celulas = document.querySelectorAll('[data-celula]');
 
 // jogo.valores[qntValores] = aleatorio()
-// desenha(jogo.valores[qntValores])
-desenha(2)
+// desenha(jogo.valores[qntValores]) 
+
+espera(aleatorio())
 
 
-function desenha(id, s=2000){   
-
-    let cell = document.getElementById(id);
-    
-    acende();
-
-    function acende(){
-        cell.classList.add('v');
-        inicio()
-    }
-
-    function inicio(){
-        return new Promise( espera => {
-                setTimeout(() => {
-                    espera()
-            }, s)
-        })
-    }
-
-    async function espera(){
-        await inicio(); 
-
-        // for(let i = 0; i < jogo.valores.length; i++){
-        //     await desenha(id)
-        // }
-
-    } 
-
-    espera().then(v => {
-        cell.classList.remove('v');
-    })    
-}
-
-async function fazerJogada(id){
-
-    for(let i = 0; i < jogo.valores.length; i++){
-        if(id == jogo.valores[i]){
-            desenha(jogo.valores[i], 1000);
+async function espera(id, s=2000){
+    let v;
+    try {
+        if(turno == 0){
+            desenha(id)
         }
+    } catch(e){
+
     }
+
+    setTimeout(() => {
+        return apaga(id)
+    }, s)
 }
+
+function apaga(id){
+    let cell = document.getElementById(id)
+    cell.classList.remove('v')
+}
+
+function desenha(id){
+    let cell = document.getElementById(id)
+    cell.classList.add('v')
+
+}
+
 
 Celulas.forEach(celula => {
     celula.addEventListener('click', ClikMouse, {once: true})
