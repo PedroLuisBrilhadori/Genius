@@ -4,7 +4,8 @@
 
 :root{
     --tamanho-celula: 100px;
-    --tamanho-verde: calc(var(var(--tamanho-celula) * .9 ))
+    --tamanho-verde: calc(var(var(--tamanho-celula) * .9 ));
+    --cor: 2px solid black;
 }
 
 .body{
@@ -33,38 +34,38 @@
 }
 
 .celula:first-child{
-    border-top: 3px solid black;
-    border-left: 3px solid black;
+    border-top: var(--cor);
+    border-left: var(--cor);
 }
 
 .celula:nth-child(2){
-    border-top: 3px solid black;
+    border-top: var(--cor);
 }
 
 .celula:nth-child(3){
-    border-top: 3px solid black;
-    border-right: 3px solid black;
+    border-top: var(--cor);
+    border-right: var(--cor);
 }
 
 .celula:nth-child(4){
-    border-left: 3px solid black;
+    border-left: var(--cor);
 }
 
 .celula:nth-child(6){
-    border-right: 3px solid black;
+    border-right: var(--cor);
 }
 
 .celula:nth-child(7){
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
+    border-left: var(--cor);
+    border-bottom: var(--cor);
 }
 
 .celula:nth-child(8){
-    border-bottom: 3px solid black;
+    border-bottom: var(--cor);
 }
 .celula:last-child{
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
+    border-right: var(--cor);
+    border-bottom: var(--cor);
 }
 
 .celula.v{

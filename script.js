@@ -1,5 +1,5 @@
 var jogo = {
-    valores: [],
+    valores: [2, 3],
     entradas: [],
 }
 let jogadas = 0
@@ -8,8 +8,10 @@ let qntValores = 0
 const tabuleiro = document.getElementById('tabuleiro');
 const Celulas = document.querySelectorAll('[data-celula]');
 
-jogo.valores[qntValores] = aleatorio()
-desenha(jogo.valores[qntValores])
+// jogo.valores[qntValores] = aleatorio()
+// desenha(jogo.valores[qntValores])
+desenha(2)
+
 
 function desenha(id, s=2000){   
 
@@ -23,29 +25,33 @@ function desenha(id, s=2000){
     }
 
     function inicio(){
-        return new Promise( remove => {
+        return new Promise( espera => {
                 setTimeout(() => {
-                    remove()
+                    espera()
             }, s)
         })
     }
 
-    async function remove(){
+    async function espera(){
         await inicio(); 
+
+        // for(let i = 0; i < jogo.valores.length; i++){
+        //     await desenha(id)
+        // }
+
     } 
 
-    remove().then(v => {
+    espera().then(v => {
         cell.classList.remove('v');
     })    
 }
 
-function fazerJogada(id){
-    if(id == jogo.valores[qntValores]){
-        for(let i = 0; i < jogo.valores.length; i++){
+async function fazerJogada(id){
+
+    for(let i = 0; i < jogo.valores.length; i++){
+        if(id == jogo.valores[i]){
             desenha(jogo.valores[i], 1000);
         }
-    } else{
-
     }
 }
 
