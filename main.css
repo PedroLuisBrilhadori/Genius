@@ -23,6 +23,7 @@
     grid-template-columns: repeat(2, auto);
 }
 
+
 .celula{
     width: var(--tamanho-celula);
     height: var(--tamanho-celula);
@@ -32,6 +33,7 @@
     align-items: center;
     cursor: pointer;
 }
+
 
 .celula:first-child,
 .celula:nth-child(2){

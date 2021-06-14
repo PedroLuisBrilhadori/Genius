@@ -6,11 +6,12 @@ jogo = {
     combinacaoMaxima: 15,
 
     interface: {
-        botoes: document.querySelector('.jogo'),
+        tabuleiro: document.querySelector('.jogo'),
+        botoes: document.getElementsByClassName('celula'),
 
         ascende(index){
-            const celula = jogo.interface.botoes.children[index];
-            celula.classList.add('v');
+            const celula = jogo.interface.tabuleiro.children[index];
+            celula.classList.add('v');  
             //audio sim, então
             setTimeout(() =>{
                 celula.classList.remove('v');
@@ -18,7 +19,21 @@ jogo = {
         },
     },
 
-    carregar() {},
+    async carregar() {
+        return new Promise(r =>{
+            console.log("carregando...")
+            const memoria = jogo.interface.tabuleiro
+            const memoriaBotao = jogo.interface.botoes
+            
+            Array.prototype.forEach.call(memoriaBotao, (elemento) => {
+                elemento.addEventListener("click", () =>{
+                    if(memoria.classList.contains("p")){
+                        console.log('oi')
+                    }
+                })
+            })
+        })
+    },
     
     comecar() {
         jogo.computadorValores = jogo.criarCombinacao()
@@ -35,3 +50,5 @@ jogo = {
         return novaCombinacao;
     }
 }
+
+jogo.carregar()
