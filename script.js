@@ -1,12 +1,22 @@
 jogo = {
     computadorValores: [],
     jogadorValores: [],
-    tamanhoMaximo = 4,
-    estagioDaCombinacao = 1,
-    combinacaoMaxima = 15,
+    tamanhoMaximo:  4,
+    estagioDaCombinacao: 1,
+    combinacaoMaxima: 15,
 
+    interface: {
+        botoes: document.querySelector('.jogo'),
 
-    interface = {},
+        ascende(index){
+            const celula = jogo.interface.botoes.children[index];
+            celula.classList.add('v');
+            //audio sim, então
+            setTimeout(() =>{
+                celula.classList.remove('v');
+            }, 1500);
+        },
+    },
 
     carregar() {},
     
@@ -24,6 +34,4 @@ jogo = {
         }
         return novaCombinacao;
     }
-
-
 }
