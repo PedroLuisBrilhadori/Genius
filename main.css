@@ -1,0 +1,80 @@
+ *, *::after, *::before{
+    box-sizing: border-box;
+}
+
+:root{
+    --tamanho-celula: 100px;
+    --tamanho-verde: calc(var(var(--tamanho-celula) * .9 ))
+}
+
+.body{
+    margin: 0;
+}
+
+.jogo{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.celula{
+    width: var(--tamanho-celula);
+    height: var(--tamanho-celula);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.celula:first-child{
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+}
+
+.celula:nth-child(2){
+    border-top: 3px solid black;
+}
+
+.celula:nth-child(3){
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+}
+
+.celula:nth-child(4){
+    border-left: 3px solid black;
+}
+
+.celula:nth-child(6){
+    border-right: 3px solid black;
+}
+
+.celula:nth-child(7){
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.celula:nth-child(8){
+    border-bottom: 3px solid black;
+}
+.celula:last-child{
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.celula.v{
+    background-color: green;
+    cursor: not-allowed;
+}
+
+.celula.x{
+    background-color: red;
+    cursor: not-allowed;
+}
+
+
